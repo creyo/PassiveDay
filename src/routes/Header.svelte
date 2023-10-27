@@ -7,7 +7,9 @@
 <header class="top-nav nav-container">
 	<div class="logo-menu">
 		<div>
+			<a href="/">
 			<img src={logo} alt="logo">
+			</a>
 		  </div>
 		  <input id="menu-toggle" type="checkbox" />
 		  <label class='menu-button-container' for="menu-toggle">

@@ -96,17 +96,6 @@ Digital Products presents a monumental opportunity to create passive income. Exp
             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
             <li on:click={()=>handleClick(article.article_id)}>{article.title}</li>
             {/each}
-            <!-- <li>E-Books</li>
-            <li>E-Books</li>
-            <li>E-Books</li>
-            <li>E-Books</li>
-            <li class="active-li">E-Books</li>
-            <li>E-Books</li>
-            <li>E-Books</li>
-            <li>E-Books</li>
-            <li>E-Books</li>
-            <li>E-Books</li>
-            <li>E-Books</li> -->
           </ul>
         </div>
 
@@ -126,32 +115,11 @@ Digital Products presents a monumental opportunity to create passive income. Exp
       </div>
      
       <ul>
-        <div>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li class="active-li">E-Books</li>
-          <li>E-Books</li>
-        </div>
-        <div>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-        </div>
-        <div>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li>E-Books</li>
-          <li >E-Books</li>
-          <li>E-Books</li>
-        </div>
-        
-       
+        {#each articles as article}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+        <li on:click={()=>handleClick(article.article_id)}>{article.title}</li>
+        {/each}
       </ul>
     </div>
   </div>
@@ -159,4 +127,5 @@ Digital Products presents a monumental opportunity to create passive income. Exp
     <h1>Latest From Our Blogs</h1>
   <LatestBlogs/>
   </div>
+
 

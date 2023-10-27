@@ -52,7 +52,6 @@ if (error) {
 
 
 
-
 </script>
 <svelte:head>
 	<title>Blog</title>

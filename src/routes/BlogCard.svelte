@@ -6,7 +6,7 @@
 
 <div class="blog-card">
     <img src={try1} alt="" class="blog-image">
-    <h3><a href="{article.url}">{article.title}</a></h3>
+    <h3><a href="{article.url}" data-sveltekit-reload>{article.title}</a></h3>
     <div class="info">
         <div  class="img-name">
             <img src={doctor} alt="" class="blog-user">
