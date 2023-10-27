@@ -10,7 +10,6 @@
     import home from '$lib/images/Home.svg'
 	import gear from '$lib/images/gear.svg'
 	import right from '$lib/images/right.svg'
-	import smile from '$lib/images/icon.svg';
 	import supabase from '../../config/supabase.js';
     import { onMount } from 'svelte';
   import LatestBlogs from "../LatestBlogs.svelte";
