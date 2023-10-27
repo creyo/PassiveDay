@@ -1,7 +1,7 @@
 <script>
 	import heroImage from '$lib/images/sample1.png';
   import Newsletter from './Newsletter.svelte';
-  import doctor from '$lib/images/doctor.png';
+	import doctor from '$lib/images/doctor.png';
   import smile from '$lib/images/Icon.svg';
   import LatestBlogs from './LatestBlogs.svelte';
   import { onMount } from 'svelte';
