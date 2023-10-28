@@ -31,7 +31,7 @@ let Date = "";
             categories(*),
             post_type(*),
             publication(*)
-          `)
+          `).eq("publication_id","1")
 if (error) {
 			console.log(error);
 		} else {
