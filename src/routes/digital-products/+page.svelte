@@ -43,9 +43,11 @@
 			console.log(error);
 		} else {
             // @ts-ignore
-            let digital_products = data.filter(article=>article.post_type.type_name=="Page");
+      
+      let digital_products = data.filter(article=>article.post_type.type_name=="Page" && article.categories.name=="Digital Products");
 			articles = digital_products;
-			// console.log(articles);
+  
+			console.log(articles);
 		}
         content = articles[0].body;
         loading = false;

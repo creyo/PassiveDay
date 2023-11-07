@@ -1,5 +1,5 @@
-/* @import url('https://fonts.cdnfonts.com/css/coolvetica'); */
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 @font-face {
   font-family: "Coolvetica";
   src: url("/src/lib/fonts/coolvetica_rg.otf") format("truetype");
@@ -7,10 +7,11 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Coolvetica', sans-serif;
     box-sizing: border-box;   
   }
-
+body{
+  font-family: 'Coolvetica', sans-serif;
+}
   .container{
     width: 1140px;
     margin: auto;
@@ -533,10 +534,15 @@ footer h2{
 }
 .content{
   color: #858C95;
+  font-family: 'Roboto', sans-serif !important;
  width: 80%;
  margin-left: 5rem;
 }
+.content h1, .content h2, .content h3{
+  margin: 1rem 0;
+}
 .ebook-hero{
+  font-family: 'Raleway', sans-serif;
   background: url(/src/lib/images/sample.png) no-repeat center center/cover;
   height: 400px;
   display: flex;
