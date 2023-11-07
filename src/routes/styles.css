@@ -533,8 +533,8 @@ footer h2{
   text-align: center;
 }
 .content{
-  color: #858C95;
   font-family: 'Roboto', sans-serif !important;
+  color:#454545;
  width: 80%;
  margin-left: 5rem;
 }
