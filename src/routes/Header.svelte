@@ -17,7 +17,7 @@
 		</label>
 		  <ul class="menu">
 			<li> <a href="/">Home</a></li>
-			<li> <a href="/products">Digital Products</a></li>
+			<li> <a href="/digital-products">Digital Products</a></li>
 			<li> <a href="/blog">Blog</a></li>			
 		  </ul>
 	</div>	   

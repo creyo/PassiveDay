@@ -9,6 +9,7 @@
     import { onMount } from 'svelte';
     import Newsletter from '../Newsletter.svelte'
     import LatestBlogs from '../LatestBlogs.svelte'
+    import Spinner from '../Spinner.svelte'
 let slug;
 let article = [];
 let body = "";
@@ -16,6 +17,7 @@ let title = "";
 let authorName = "";
 let authorBio = "";
 let Date = "";
+let isLoading = true;
 	onMount(async () => {
     // Access the slug parameter from the route
     slug = $page.params.slug;
@@ -37,6 +39,7 @@ if (error) {
 		} else {
             // @ts-ignore
             article = data.filter(blog=>blog.url == slug);
+            
 			// @ts-ignore
 			body = article[0].body
       // @ts-ignore
@@ -48,6 +51,7 @@ if (error) {
       // @ts-ignore
       Date = article[0].date
 		}
+    isLoading = false;
   })
 
 
@@ -57,8 +61,12 @@ if (error) {
 	<title>Blog</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
-
-<div class="container">
+{#if isLoading}
+<!-- Display a loader while data is loading -->
+<Spinner/>
+{:else}
+{#if article[0]}
+  <div class="container">
 
 
 	<div class="bread-crum">
@@ -122,3 +130,8 @@ if (error) {
   <h1>Latest From Our Blogs</h1>
 <LatestBlogs/>
 </div>
+
+{:else}
+  <p>Blog post not found</p>
+{/if}
+{/if}

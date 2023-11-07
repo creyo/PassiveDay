@@ -13,9 +13,11 @@
 	import supabase from '../../config/supabase.js';
     import { onMount } from 'svelte';
   import LatestBlogs from "../LatestBlogs.svelte";
+  import Spinner from '../Spinner.svelte';
     let articles = [];
     let content = "";
     let check = []
+    let loading= true;
     stores.subscribe((data) => {
         check = data
     })
@@ -46,6 +48,7 @@
 			// console.log(articles);
 		}
         content = articles[0].body;
+        loading = false;
 	});
   
    
@@ -82,7 +85,9 @@ Digital Products presents a monumental opportunity to create passive income. Exp
 
       </p>
   </div>
-
+{#if loading}
+<Spinner/>
+{:else}
   <section class="content-sidebar container">
 
       <div class="list">
@@ -98,7 +103,7 @@ Digital Products presents a monumental opportunity to create passive income. Exp
             {/each}
           </ul>
         </div>
-
+        
         <div class="content">
           <p>
              {@html content}
@@ -127,5 +132,5 @@ Digital Products presents a monumental opportunity to create passive income. Exp
     <h1>Latest From Our Blogs</h1>
   <LatestBlogs/>
   </div>
-
+  {/if}
 
