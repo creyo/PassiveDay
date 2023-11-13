@@ -27,12 +27,12 @@
             // @ts-ignore
             let digital_products = data.filter(article=>article.post_type.type_name=="Blog" && article.publication_id== 1 && article.articlestatus.status_name=="Published")
 			articles = digital_products;
-			console.log(articles);
+			// console.log(articles);
 		}
 	});
 </script>
 <svelte:head>
-	<title>Blog</title>
+	<title>Blog | PassiveDay</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 

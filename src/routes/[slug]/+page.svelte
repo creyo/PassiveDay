@@ -58,7 +58,7 @@ if (error) {
 
 </script>
 <svelte:head>
-	<title>Blog</title>
+	<title>{title} | PassiveDay</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 {#if isLoading}

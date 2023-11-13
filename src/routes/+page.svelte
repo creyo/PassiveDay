@@ -18,12 +18,12 @@
             post_type(*),
             publication(*)
           `)
-    console.log(data)
+    // console.log(data)
 	});
 </script>
 
 <svelte:head>
-	<title>Passive Day</title>
+	<title>PassiveDay</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 

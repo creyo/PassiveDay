@@ -1,6 +1,6 @@
 
 <svelte:head>
-	<title>Digital Products</title>
+	<title>Digital Products | PassiveDay</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
@@ -21,7 +21,7 @@
     stores.subscribe((data) => {
         check = data
     })
-    console.log(check)
+    // console.log(check)
 
 	onMount(async () => {
 	// console.log(stores)
@@ -47,7 +47,7 @@
       let digital_products = data.filter(article=>article.post_type.type_name=="Page" && article.categories.name=="Digital Products");
 			articles = digital_products;
   
-			console.log(articles);
+			// console.log(articles);
 		}
         content = articles[0].body;
         loading = false;
