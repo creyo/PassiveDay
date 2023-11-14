@@ -7,7 +7,8 @@
 	import supabase from '../../config/supabase.js';
     import { onMount } from 'svelte';
 	import Newsletter from '../Newsletter.svelte';
-	
+	import Spinner from '../Spinner.svelte';
+	let loading= true;
     let articles = [];
 	onMount(async () => {
 	let { data, error } = await supabase
@@ -27,6 +28,7 @@
             // @ts-ignore
             let digital_products = data.filter(article=>article.post_type.type_name=="Blog" && article.publication_id== 1 && article.articlestatus.status_name=="Published")
 			articles = digital_products;
+			loading = false;
 			// console.log(articles);
 		}
 	});
@@ -84,11 +86,18 @@
 
 			</p>
   </div>
-
+  {#if loading}
+  <Spinner/>
+  {:else}
   <div class="blogs-grid container">
 	{#each articles as article}
 		<BlogCard article={article} />
 	{/each}
   </div>
+  {/if}
+
+  <div class="container button-container">
+        <button>Load More</button>
+      </div>
 
   <Newsletter/>

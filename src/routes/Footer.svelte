@@ -1,6 +1,9 @@
 <script>
     import logo from '$lib/images/logo.png';
     import facebook from '$lib/images/facebook.png';
+    import instagram from '$lib/images/instagram.png';
+    import google from '$lib/images/google.png';
+    import apple from '$lib/images/apple.png';
 </script>
 
 <footer>
@@ -41,9 +44,9 @@
       <p>2023 Lookscout. All Rights Reserved</p>
       <div class="social">
         <img src={facebook} alt="">
-        <img src={facebook} alt="">
-        <img src={facebook} alt="">
-        <img src={facebook} alt="">
+        <img src={apple} alt="">
+        <img src={google} alt="">
+        <img src={instagram} alt="">
       </div>
     </div>
   </div>

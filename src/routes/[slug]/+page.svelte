@@ -80,7 +80,7 @@ if (error) {
 	  </div>
 	  <div>
 		<img src={gear} alt="">
-		<p>Blog</p>
+		<p>{title}</p>
 	  </div>
 	</div>
   </div>

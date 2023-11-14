@@ -18,6 +18,7 @@
     let content = "";
     let check = []
     let loading= true;
+    let activeArticle = null;
     stores.subscribe((data) => {
         check = data
     })
@@ -50,6 +51,7 @@
 			// console.log(articles);
 		}
         content = articles[0].body;
+        activeArticle = articles[0].article_id;
         loading = false;
 	});
   
@@ -58,6 +60,12 @@
         console.log("clicked",id);
         let filtered_article = articles.filter(article=>article.article_id==id);
         content = filtered_article[0].body
+
+        if (activeArticle === id) {
+      activeArticle = null; // Deactivate if already active
+    } else {
+      activeArticle = id; // Activate the clicked article
+    }
     }
 </script>
 
@@ -75,7 +83,7 @@
       </div>
       <div>
         <img src={gear} alt="">
-        <p>Blog</p>
+        <p>Digital Products</p>
       </div>
     </div>
   </div>
@@ -101,7 +109,7 @@ Digital Products presents a monumental opportunity to create passive income. Exp
             {#each articles as article}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-            <li on:click={()=>handleClick(article.article_id)}>{article.title}</li>
+            <li on:click={()=>handleClick(article.article_id)} class:active-li={activeArticle === article.article_id}>{article.title}</li>
             {/each}
           </ul>
         </div>
@@ -125,7 +133,7 @@ Digital Products presents a monumental opportunity to create passive income. Exp
         {#each articles as article}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-        <li on:click={()=>handleClick(article.article_id)}>{article.title}</li>
+        <li on:click={()=>handleClick(article.article_id)} class:active-li={activeArticle === article.article_id}>{article.title}</li>
         {/each}
       </ul>
     </div>
