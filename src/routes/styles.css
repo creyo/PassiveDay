@@ -1135,6 +1135,7 @@ footer h2{
   
   .social img{
     height: 15px;
+    cursor: pointer;
   } 
   
   }
