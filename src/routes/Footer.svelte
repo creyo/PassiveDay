@@ -4,7 +4,6 @@
     import instagram from '$lib/images/instagram.png';
     import tiktok from '$lib/images/tiktok.png';
     import twitter from '$lib/images/twitter.png';
-    import youtube from '$lib/images/youtube.png';
 </script>
 
 <footer>
