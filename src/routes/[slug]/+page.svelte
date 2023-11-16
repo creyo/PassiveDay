@@ -16,7 +16,7 @@ let body = "";
 let title = "";
 let authorName = "";
 let authorBio = "";
-let Date = "";
+let date = "";
 let isLoading = true;
 	onMount(async () => {
     // Access the slug parameter from the route
@@ -49,7 +49,13 @@ if (error) {
       // @ts-ignore
       authorBio = article[0].authors.bio
       // @ts-ignore
-      Date = article[0].date
+      const timestamp = article[0].date
+      const localDate = new Date(timestamp);
+
+// Convert to local time zone
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+     // @ts-ignore
+     date = localDate.toLocaleDateString('en-US', options);
 		}
     isLoading = false;
   })
@@ -111,7 +117,7 @@ if (error) {
             <img src={doctor} alt="">
              
           <p>
-           {authorName}| {authorBio} |{Date}
+           {authorName}| {authorBio} |{date}
           </p>
         </div>
       <img src={try1} alt="try" >    
