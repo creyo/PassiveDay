@@ -5,7 +5,7 @@
 </svelte:head>
 
 <script>
-  import stores from '../../stores'
+  // import stores from '../../stores'
     import Newsletter from "../Newsletter.svelte";
     import home from '$lib/images/Home.svg'
 	import gear from '$lib/images/gear.svg'
@@ -19,9 +19,9 @@
     let check = []
     let loading= true;
     let activeArticle = null;
-    stores.subscribe((data) => {
-        check = data
-    })
+    // stores.subscribe((data) => {
+    //     check = data
+    // })
     // console.log(check)
 
 	onMount(async () => {

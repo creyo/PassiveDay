@@ -541,6 +541,9 @@ footer h2{
 .content h1, .content h2, .content h3{
   margin: 1rem 0;
 }
+.blog-content ul li , .blog-content ol li{
+  margin-left: 18px;
+}
 .blog-content h1, .blog-content h2, .blog-content h3{
   margin: 1rem 0;
 }
