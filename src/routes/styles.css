@@ -61,6 +61,8 @@ body{
     margin: 0 1rem;
     overflow: hidden;
   }
+
+  
   
   .menu-button-container {
     display: none;
@@ -407,6 +409,8 @@ footer{
   background-color: #181818;
   color: #979AA0;
   margin: 0;
+  position: relative;
+  bottom: 0;
 }
 .footer-container{
   width: 1140px;
@@ -896,12 +900,13 @@ footer h2{
       padding: 1rem;
     }
     .content p, .content ul li, .content ol li, .blog-content p, .blog-content ul li, .blog-content ol li{
-      font-size: 16px;
+      font-size: 18px;
       line-height: 24px;
     }
    
     .content h1, .content h2, .content h3,.blog-content h1, .blog-content h2, .blog-content h3{
-      font-size: 32px;
+      font-size: 24px;
+      line-height: 24px;
     }
     .blogs-hero p, .ebook-hero p{
       font-size: 0.8rem;
@@ -1037,6 +1042,9 @@ footer h2{
        position: relative;
        left: 0;
      }
+     .menu > li a{
+      color: white;
+    }
      .box-r{
        position: relative;
        right: 0;
