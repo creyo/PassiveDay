@@ -49,13 +49,13 @@
 
     <section class="box-container">
         <div class="boxes">
-          <div class="box box-l-1 box-u">Digital Products</div>
-          <div class="box box-u">Ecommerce</div>
-        <div class="box box-l" >Affiliate Marketing</div>
-        <div class="box box-r">Real Estate</div>
-        <div class="box box-l-1 box-d">Crypto Currency
+          <div class="box box-l-1 box-u"> <a href="/digital-products"> Digital Products</a></div>
+          <div class="box box-u"> <a href="/ecommerce"> Ecommerce</a></div>
+        <div class="box box-l" ><a href="/affiliate-marketing"> Affiliate Marketing</a></div>
+        <div class="box box-r"><a href="/real-estate"> Real Estate</a></div>
+        <div class="box box-l-1 box-d"><a href="/crypto-currency">Crypto Currency</a>
         </div>
-        <div class="box box-d">Stock Market</div>
+        <div class="box box-d"><a href="/stock-market">Stock Market</a></div>
       </div>
       </section>
       <section class="head-para container">
