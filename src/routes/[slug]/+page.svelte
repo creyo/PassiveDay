@@ -28,6 +28,8 @@ let date = "";
 let isLoading = true;
 let type1 = false;
 let type2 = false;
+let type3 = false;
+
 function formatUrlSegment(url) {
   const segments = url.split('/').filter(Boolean);
     const lastSegment = segments[segments.length - 1];
@@ -76,12 +78,15 @@ if (error) {
       type1 = true ? data.filter(blog=>blog.url == slug && blog.post_type.type_name == 'Blog' ).length>0: false;
       // console.log( data.filter(blog=>blog.url == slug))
            // @ts-ignore
-      type2 = true ? data.filter(blog=>blog.categories.name == 'Main' && blog.url == slug).length>0 : false;
+      type2 = true ? data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug) || (blog.categories.name == 'Profession' && blog.url == slug )).length>0 : false;
+      console.log(data.filter(blog=>blog.categories.name == 'Profession'))
       // console.log(type1,type2)
 
       if(type1){
         isLoading = false;
         type1 = true;
+        //@ts-ignore
+        
 // @ts-ignore
         article = data.filter(blog=>blog.url == slug);
 // @ts-ignore
@@ -112,7 +117,7 @@ body = article[0].body
          // @ts-ignore
         // let digital_products = data.filter(article=>article.post_type.type_name=="Page" && article.categories.name=="Digital Products");
 			articles = data.filter(item=>item.categories.name==test_slug)
-  
+      
         // let slug = $page.params.slug;
         // @ts-ignore
         // let article_item = articles.filter(article=>article.url==slug);
@@ -124,7 +129,7 @@ body = article[0].body
           // @ts-ignore
         title = test_slug;
           // @ts-ignore
-        let foo = data.filter(blog=>blog.categories.name == 'Main' && blog.url == slug)[0];
+        let foo = data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug) || (blog.categories.name == 'Profession' && blog.url == slug ))[0];
            // @ts-ignore
         content = foo.body
           // @ts-ignore

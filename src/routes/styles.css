@@ -957,9 +957,9 @@ footer h2{
       font-size: 0.8rem;
       width: 70%;
     }
-    .ebook-hero{
-      height: 250px;
-    }
+    /* .ebook-hero{
+      height: 300px;
+    } */
     .ebook-hero img{
       width: 98%;
       /* height: 380px; */
