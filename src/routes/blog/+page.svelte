@@ -8,6 +8,7 @@
     import { onMount } from 'svelte';
 	import Newsletter from '../Newsletter.svelte';
 	import Spinner from '../Spinner.svelte';
+	import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
 	let loading= true;
     let articles = [];
 	onMount(async () => {
@@ -51,12 +52,16 @@
 		<img src={right} alt="">
 	  </div>
 	  <div>
-		<img src={gear} alt="">
+		<!-- <img src={gear} alt=""> -->
+		<div  class='small-icon'>
+			<IoIosPaper/>
+		</div>
+		
 		<p>Blog</p>
 	  </div>
 	</div>
   </div>
-  <div class="container">
+  <!-- <div class="container">
 	<div class="tags-search">
 	  <div class="tags">
 		<h3>Tags:</h3>
@@ -71,7 +76,7 @@
 		<button type="submit">Search</button>
 	  </form>  
 	</div>
-  </div>
+  </div> -->
   
   <div class="blogs-hero ">
 		 
@@ -101,3 +106,4 @@
       </div>
 
   <Newsletter/>
+  

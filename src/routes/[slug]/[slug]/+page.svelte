@@ -16,6 +16,8 @@
   import LatestBlogs from "../../LatestBlogs.svelte";
   import Spinner from '../../Spinner.svelte';
   import { goto } from '$app/navigation';
+  import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
+  import { featured_image } from '$lib/stores';
     let articles = [];
     let content = "";
     let check = []
@@ -121,18 +123,20 @@
         <img src={right} alt="">
       </div>
       <div>
-        <img src={gear} alt="">
+        <div  class='small-icon'>
+          <IoIosPaper/>
+        </div>
         <p>Digital Products</p>
       </div>
     </div>
   </div>
   <div class="ebook-hero container">
-
-      <h1> Digital Products</h1>
+    <img src={`https://res.cloudinary.com/creyo-com/image/upload/v1700642325/passiveday/pages/${$featured_image}`} alt="">
+      <!-- <h1> Digital Products</h1>
       <p>
 Digital Products presents a monumental opportunity to create passive income. Explore the different options available.
 
-      </p>
+      </p> -->
   </div>
 {#if loading}
 <Spinner/>

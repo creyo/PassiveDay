@@ -11,6 +11,8 @@
     import LatestBlogs from '../LatestBlogs.svelte'
     import Spinner from '../Spinner.svelte'
   import { goto } from '$app/navigation';
+  import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
+  import { featured_image } from '$lib/stores';
 let slug;
 let test_slug;
 let article = [];
@@ -22,7 +24,7 @@ let title = "";
 let authorName = "";
 let authorBio = "";
 let date = "";
-let featured_image = "";
+// let featured_image = "";
 let isLoading = true;
 let type1 = false;
 let type2 = false;
@@ -126,7 +128,8 @@ body = article[0].body
            // @ts-ignore
         content = foo.body
           // @ts-ignore
-        featured_image = foo.featured_image
+        // featured_image = foo.featured_image
+        featured_image.set(foo.featured_image)
         // console.log(featured_image)
           // @ts-ignore
         // activeArticle = article_item.article_id;
@@ -180,13 +183,15 @@ body = article[0].body
 		<img src={right} alt="">
 	  </div>
 	  <div>
-		<img src={gear} alt="">
+      <div  class='small-icon'>
+        <IoIosPaper/>
+      </div>
 		<p>{title}</p>
 	  </div>
 	</div>
   </div>
 
-  <div class="container">
+  <!-- <div class="container">
     <div class="tags-search">
       <div class="tags">
         <h3>Tags:</h3>
@@ -201,7 +206,7 @@ body = article[0].body
         <button type="submit">Search</button>
       </form>  
     </div>
-  </div>
+  </div> -->
   <div class="blog-hero ">
 
     <h1>
@@ -253,13 +258,15 @@ body = article[0].body
       <img src={right} alt="">
     </div>
     <div>
-      <img src={gear} alt="">
+      <div  class='small-icon'>
+        <IoIosPaper/>
+      </div>
       <p>{test_slug}</p>
     </div>
   </div>
 </div>
 <div class="ebook-hero container">
-  <img src={`https://res.cloudinary.com/creyo-com/image/upload/v1700642325/passiveday/pages/${featured_image}`} alt="">
+  <img src={`https://res.cloudinary.com/creyo-com/image/upload/v1700642325/passiveday/pages/${$featured_image}`} alt="">
     <!-- <h1>{test_slug}</h1>
     <p>
 Digital Products presents a monumental opportunity to create passive income. Explore the different options available.
@@ -314,8 +321,6 @@ Digital Products presents a monumental opportunity to create passive income. Exp
 <div class="background">
   <h1>Latest From Our Blogs</h1>
 <LatestBlogs/>
-
-<img src={`https://res.cloudinary.com/creyo-com/image/upload/v1700642325/passiveday/pages/${featured_image}`} alt="">
 </div>
 {/if}
 {/if}

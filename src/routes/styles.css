@@ -40,6 +40,13 @@ body{
     text-decoration: none;
     color: #454545;
   }
+
+  .small-icon {
+	  width: 25px;
+	  height: 25px;
+	}
+
+  
   .logo-menu {
     display: flex;
     flex-direction: row;
@@ -949,6 +956,11 @@ footer h2{
     .blogs-hero p, .ebook-hero p{
       font-size: 0.8rem;
       width: 70%;
+    }
+
+    .ebook-hero img{
+      width: 98%;
+      /* height: 380px; */
     }
     .list-2{
       font-size: 0.8rem;
