@@ -79,7 +79,7 @@ if (error) {
       // console.log( data.filter(blog=>blog.url == slug))
            // @ts-ignore
       type2 = true ? data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug) || (blog.categories.name == 'Profession' && blog.url == slug )).length>0 : false;
-      console.log(data.filter(blog=>blog.categories.name == 'Profession'))
+      // console.log(data.filter(blog=>blog.categories.name == 'Profession'))
       // console.log(type1,type2)
 
       if(type1){
@@ -176,8 +176,6 @@ body = article[0].body
 {:else}
 {#if article[0]}
   <div class="container">
-
-
 	<div class="bread-crum">
 	  <div>
 		<img src={home} alt="">

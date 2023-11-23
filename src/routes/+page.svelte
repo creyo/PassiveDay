@@ -148,6 +148,7 @@
       </span> options for
       </h1>
       <select name="" id="">
+        <option value="" disabled selected>Select your profession</option>
           <option value="">Doctor</option>
           <option value="">Gamer</option>
           <option value="">Photographer</option>
