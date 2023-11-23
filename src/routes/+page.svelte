@@ -6,6 +6,13 @@
   import LatestBlogs from './LatestBlogs.svelte';
   import { onMount } from 'svelte';
   import supabase from '../config/supabase.js';
+  import { goto } from '$app/navigation';
+
+  const goTo = (e) => {
+  goto(e.target.value)
+  };
+  
+  let professions = [];
   onMount(async () => {
 	
     const { data, error } = await supabase
@@ -18,7 +25,11 @@
             post_type(*),
             publication(*)
           `)
-    // console.log(data)
+
+    if (error) console.log('error', error)
+    //@ts-ignore
+    else professions = data.filter(blog=>blog.categories.name == 'Profession')
+    console.log(professions)
 	});
 </script>
 
@@ -147,12 +158,11 @@
        Passive Income
       </span> options for
       </h1>
-      <select name="" id="">
-        <option value="" disabled selected>Select your profession</option>
-          <option value="">Doctor</option>
-          <option value="">Gamer</option>
-          <option value="">Photographer</option>
-          <option value="">Lawyer</option>
+      <select name="" id="" on:change|preventDefault={goTo}>
+        <option value="" disabled selected>Select your Profession</option>
+        {#each professions as profession}
+        <option value={profession.url}>{profession.title}</option>
+	      {/each}
       </select>
       <p>
         Please remember that we may receive a commission when you click on our links to make a purchase. This, however, has no bearing on our reviews and comparisons. We will do our best to keep things fair and balanced to assist you in making the best decision for you.
