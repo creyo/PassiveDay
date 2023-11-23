@@ -22,7 +22,7 @@
             categories(*),
             post_type(*),
             publication(*)
-          `)
+          `).eq('status', 3).eq('publication_id', 1)
 
 		if (error) {
 			console.log(error);

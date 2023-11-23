@@ -64,7 +64,7 @@ function formatUrlSegment(url) {
             categories(*),
             post_type(*),
             publication(*)
-          `)
+          `).eq('status', 3).eq('publication_id', 1)
 if (error) {
 			console.log(error);
 		} else {
@@ -78,7 +78,7 @@ if (error) {
       type1 = true ? data.filter(blog=>blog.url == slug && blog.post_type.type_name == 'Blog' ).length>0: false;
       // console.log( data.filter(blog=>blog.url == slug))
            // @ts-ignore
-      type2 = true ? data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug) || (blog.categories.name == 'Profession' && blog.url == slug )).length>0 : false;
+      type2 = true ? data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug && blog.post_type.type_name == 'Page') || (blog.categories.name == 'Profession' && blog.url == slug ) || (blog.categories.name == 'Root' && blog.url == slug )).length>0 : false;
       // console.log(data.filter(blog=>blog.categories.name == 'Profession'))
       // console.log(type1,type2)
 
@@ -129,7 +129,7 @@ body = article[0].body
           // @ts-ignore
         title = test_slug;
           // @ts-ignore
-        let foo = data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug) || (blog.categories.name == 'Profession' && blog.url == slug ))[0];
+        let foo = data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug) || (blog.categories.name == 'Profession' && blog.url == slug )  || (blog.categories.name == 'Root' && blog.url == slug ))[0];
            // @ts-ignore
         content = foo.body
           // @ts-ignore
