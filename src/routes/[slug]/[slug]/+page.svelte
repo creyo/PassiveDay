@@ -65,24 +65,15 @@
     }
 
     staticPart = formatUrlSegment(staticPart)
-            // @ts-ignore
+      // @ts-ignore
 			articles =  data.filter(article=>article.post_type.type_name=="Page" && article.categories.name == staticPart);
-                  // @ts-ignore
-      // console.log(data.filter(article=>article.post_type.type_name=="Page"  && article.categories.name == staticPart))
-      // console.log(articles)
-      // console.log(staticPart)
-          // console.log(articles[0].url)
-      // console.log(articles)
-        
-        // console.log(slug)
         // @ts-ignore
         let article = articles.filter(article=>article.url==slug);
        
               // @ts-ignore
-        // console.log(articles.filter(article=>article.url==slug))
+ 
         if(article && article.length>0){
-          // console.log('yes')
-        // console.log(article)
+
         // @ts-ignore
         content = article[0].body;
         // @ts-ignore

@@ -1,7 +1,6 @@
 <script>
     import home from '$lib/images/Home.svg'
-	import gear from '$lib/images/gear.svg'
-	import right from '$lib/images/right.svg'
+	  import right from '$lib/images/right.svg'
     import doctor from '$lib/images/doctor.png'
     import try1 from '$lib/images/try1.png'
     import { page } from '$app/stores';
@@ -10,52 +9,47 @@
     import Newsletter from '../Newsletter.svelte'
     import LatestBlogs from '../LatestBlogs.svelte'
     import Spinner from '../Spinner.svelte'
-  import { goto } from '$app/navigation';
-  import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
-  import { featured_image } from '$lib/stores';
-let slug;
-let test_slug;
-let article = [];
-let articles = [];
-    let content = "";
-    let activeArticle = null;
-let body = "";
-let title = "";
-let authorName = "";
-let authorBio = "";
-let date = "";
-// let featured_image = "";
-let isLoading = true;
-let type1 = false;
-let type2 = false;
-let type3 = false;
+    import { goto } from '$app/navigation';
+    import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
+    import { featured_image } from '$lib/stores';
+
+  let slug;
+  let test_slug;
+  let article = [];
+  let articles = [];
+  let content = "";
+  let activeArticle = null;
+  let body = "";
+  let title = "";
+  let authorName = "";
+  let authorBio = "";
+  let date = "";
+  let isLoading = true;
+  let type1 = false;
+  let type2 = false;
 
 function formatUrlSegment(url) {
-  const segments = url.split('/').filter(Boolean);
+    const segments = url.split('/').filter(Boolean);
     const lastSegment = segments[segments.length - 1];
     const words = lastSegment.split('-');
-    
-    // Capitalize the first letter of each word
     const formattedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
-
     return formattedWords.join(' ');
   }
+
   const handleClick=(id)=>{
-        // console.log("clicked",id);
         let filtered_article = articles.filter(article=>article.article_id==id);
         content = filtered_article[0].body
         goto(`/digital-products/${filtered_article[0].url}`)
         if (activeArticle === id) {
-      activeArticle = null; // Deactivate if already active
+      activeArticle = null;
     } else {
-      activeArticle = id; // Activate the clicked article
+      activeArticle = id; 
     }
     }
+
 	onMount(async () => {
-    // Access the slug parameter from the route
-    slug = $page.params.slug;
-    // console.log(slug);    	
-	let { data, error } = await supabase
+        slug = $page.params.slug;   	
+	      let { data, error } = await supabase
   			.from('articles')
               .select(`
             *,
@@ -65,32 +59,21 @@ function formatUrlSegment(url) {
             post_type(*),
             publication(*)
           `).eq('status', 3).eq('publication_id', 1)
-if (error) {
+      if (error) {
 			console.log(error);
-		} else {
-          
-
-            test_slug = formatUrlSegment(slug);
-              // @ts-ignore
-         
-      // article = data.filter(blog=>blog.url == slug);
-
+		  } else {
+      test_slug = formatUrlSegment(slug);
+      // @ts-ignore
       type1 = true ? data.filter(blog=>blog.url == slug && blog.post_type.type_name == 'Blog' ).length>0: false;
-      // console.log( data.filter(blog=>blog.url == slug))
-           // @ts-ignore
+      // @ts-ignore
       type2 = true ? data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug && blog.post_type.type_name == 'Page') || (blog.categories.name == 'Profession' && blog.url == slug ) || (blog.categories.name == 'Root' && blog.url == slug )).length>0 : false;
-      // console.log(data.filter(blog=>blog.categories.name == 'Profession'))
-      // console.log(type1,type2)
-
       if(type1){
-        isLoading = false;
-        type1 = true;
-        //@ts-ignore
-        
-// @ts-ignore
-        article = data.filter(blog=>blog.url == slug);
-// @ts-ignore
-body = article[0].body
+      isLoading = false;
+      type1 = true;      
+      // @ts-ignore
+      article = data.filter(blog=>blog.url == slug );
+      // @ts-ignore
+      body = article[0].body
       // @ts-ignore
       title = article[0].title
       // @ts-ignore
@@ -100,66 +83,32 @@ body = article[0].body
       // @ts-ignore
       const timestamp = article[0].date
       const localDate = new Date(timestamp);
-
-// Convert to local time zone
-    const options = { day: 'numeric', month: 'short', year: 'numeric' };
-     // @ts-ignore
-     date = localDate.toLocaleDateString('en-US', options);
-      }
-         
-  
-    // @ts-ignore
-      else if(type2){
-            // @ts-ignore
-        // console.log(data.filter(item=>item.categories.name==test_slug))
+      const options = { day: 'numeric', month: 'short', year: 'numeric' };
+      // @ts-ignore
+      date = localDate.toLocaleDateString('en-US', options);
+      } 
+        // @ts-ignore
+        else if(type2){
+        // @ts-ignore
         type2 = true;
         isLoading = false;
          // @ts-ignore
-        // let digital_products = data.filter(article=>article.post_type.type_name=="Page" && article.categories.name=="Digital Products");
-			articles = data.filter(item=>item.categories.name==test_slug)
-      
-        // let slug = $page.params.slug;
+			  articles = data.filter(item=>item.categories.name==test_slug && item.post_type.type_name == 'Page' )     
         // @ts-ignore
-        // let article_item = articles.filter(article=>article.url==slug);
-        // console.log(article_item)
-        // console.log(articles[0].body)
-
-        // let article_item = articles[0]
-        // console.log(article_item.body)
-          // @ts-ignore
         title = test_slug;
-          // @ts-ignore
-        let foo = data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug) || (blog.categories.name == 'Profession' && blog.url == slug )  || (blog.categories.name == 'Root' && blog.url == slug ))[0];
-           // @ts-ignore
+        // @ts-ignore
+        let foo = data.filter(blog=>(blog.categories.name == 'Main' && blog.url == slug ) || (blog.categories.name == 'Profession' && blog.url == slug )  || (blog.categories.name == 'Root' && blog.url == slug ))[0];
+        // @ts-ignore
         content = foo.body
-          // @ts-ignore
-        // featured_image = foo.featured_image
+        // @ts-ignore
         featured_image.set(foo.featured_image)
-        // console.log(featured_image)
-          // @ts-ignore
-        // activeArticle = article_item.article_id;
-      //   if(article_item && article_item.length>0){
-      //     // console.log('yes')
-      //   // console.log(article)
-      
-      //   content = article_item.body;
-      //   // console.log(content)
-      //   // @ts-ignore
-      //   activeArticle = article_item.article_id;
-      // }
     }
-         else{
-               
+         else{ 
           isLoading = false;
           goto("/404")
-         }   
-			
+         }   	
 		}
-  
   })
-
-
-
 </script>
 
 <svelte:head>
@@ -171,7 +120,6 @@ body = article[0].body
 {:else}
 {#if type1}
 {#if isLoading}
-<!-- Display a loader while data is loading -->
 <Spinner/>
 {:else}
 {#if article[0]}

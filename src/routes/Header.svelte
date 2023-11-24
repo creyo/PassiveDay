@@ -31,8 +31,8 @@
 			  </li>		
 		  </ul>
 	</div>	   
-		<div class="user">
+		<!-- <div class="user">
 			<img src={doctor} alt="user">
-		  </div>
+		  </div> -->
 </header>
 

@@ -23,12 +23,9 @@ body{
   }
  
   .top-nav {
-    width: 1440px;
+    width: 1240px;
     margin: auto;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     background-color: #00BAF0;
     background:white;
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -79,8 +76,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    left: 8rem;
+    position: absolute;
+    right: 2.5rem;  
   }
   
   #menu-toggle {
@@ -1061,7 +1058,7 @@ footer h2{
     .hero-container{
       display: flex;
       flex-direction: column;
-      width: 80%;
+      width: 94%;
      }
      .box {
        background-color: white 60%;
@@ -1106,6 +1103,9 @@ footer h2{
      .menu > li a{
       color: white;
     }
+    .hero-text {
+      width: 80%;
+  }
      .box-r{
        position: relative;
        right: 0;
