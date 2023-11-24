@@ -440,6 +440,8 @@ body{
   background-color: white;
   color: #333; /* Text color for options */
 }
+
+
 .selector select option:disabled{
     color: #333 ;
     font-weight: 600;
@@ -664,14 +666,18 @@ footer h2{
   height: 100%;
 }
 
-.list div p{
+.list .list-category,.list-2 .list-category {
   font-weight: bold;
-  /* margin: 10px 0; */
   background-color: #FF4040;
   border-radius: 10px 10px 0 0;
   padding: 10px 20px;
-  color: white;
   max-width: 100%;
+}
+
+.list .list-category a,.list-2 .list-category a {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
 }
 .list ul li{
   font-weight: bold;
@@ -700,15 +706,7 @@ footer h2{
   border-radius: 10px 10px 0 0;
 }
 
-.list-2 div p{
-  font-weight: bold;
-  /* margin: 10px 0; */
-  background-color: #FF4040;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 20px;
-  color: white;
-  max-width: 100%;
-}
+
 .list-2 ul li{
   cursor: pointer;
   font-weight: bold;

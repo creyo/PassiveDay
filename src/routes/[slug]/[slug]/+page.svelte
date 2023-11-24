@@ -5,7 +5,6 @@
 </svelte:head>
 
 <script>
-  // import stores from '../../stores'
   import { page } from '$app/stores';
     import Newsletter from '../../Newsletter.svelte';
     import home from '$lib/images/Home.svg'
@@ -16,25 +15,21 @@
   import LatestBlogs from "../../LatestBlogs.svelte";
   import Spinner from '../../Spinner.svelte';
   import { goto } from '$app/navigation';
+   //@ts-ignore
   import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
   import { featured_image } from '$lib/stores';
     let articles = [];
     let content = "";
-    let check = []
     let loading= true;
     let activeArticle = null;
-    // stores.subscribe((data) => {
-    //     check = data
-    // })
-    // console.log(check)
+    let staticPart= "";
+    let main_category = "";
     function formatUrlSegment(url) {
   const segments = url.split('/').filter(Boolean);
     const lastSegment = segments[segments.length - 1];
     const words = lastSegment.split('-');
-    
     // Capitalize the first letter of each word
     const formattedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
-
     return formattedWords.join(' ');
   }
 	onMount(async () => {
@@ -56,24 +51,22 @@
       let slug = $page.params.slug;
         // @ts-ignore
       let full_path = $page.url.pathname;
-      // console.log($page.url.pathname)
       const index = full_path.indexOf(slug);
       if (index !== -1) {
-      var staticPart = full_path.slice(0, index);
+       staticPart = full_path.slice(0, index);
     } else {
-      staticPart = full_path // Fallback, use the full path if dynamic segment not found
+      staticPart = full_path 
     }
-
+    main_category = staticPart;
     staticPart = formatUrlSegment(staticPart)
-      // @ts-ignore
-			articles =  data.filter(article=>article.post_type.type_name=="Page" && article.categories.name == staticPart);
         // @ts-ignore
-        let article = articles.filter(article=>article.url==slug);
-       
-              // @ts-ignore
- 
-        if(article && article.length>0){
+			  articles =  data.filter(article=>article.post_type.type_name=="Page" && article.categories.name == staticPart);
+   
+             // @ts-ignore
+        let article = articles.filter(article=>article.url==slug );
 
+        // @ts-ignore
+        if(article && article.length>0){
         // @ts-ignore
         content = article[0].body;
         // @ts-ignore
@@ -92,7 +85,7 @@
         // console.log("clicked",id);
         let filtered_article = articles.filter(article=>article.article_id==id);
         content = filtered_article[0].body
-        goto(`/digital-products/${filtered_article[0].url}`)
+        goto(`/${main_category}/${filtered_article[0].url}`)
         if (activeArticle === id) {
       activeArticle = null; // Deactivate if already active
     } else {
@@ -135,9 +128,11 @@ Digital Products presents a monumental opportunity to create passive income. Exp
   <section class="content-sidebar container">
     {#if articles.length>0}
       <div class="list">
-          <div>
-            <p>Digital Products</p>
-          </div>
+        <div class="list-category">
+          <a href={main_category} >
+          {staticPart}
+        </a>
+        </div>
          
           <ul>
             {#each articles as article}
@@ -161,9 +156,11 @@ Digital Products presents a monumental opportunity to create passive income. Exp
   <div class="container">
     {#if articles.length>0}
     <div class="list-2">
-      <div>
-        <p>Digital Products</p>
-      </div>
+    <div class="list-category">
+      <a href={main_category} >
+      {staticPart}
+    </a>
+    </div>
      
       <ul>
    

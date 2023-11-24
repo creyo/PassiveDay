@@ -10,6 +10,7 @@
     import LatestBlogs from '../LatestBlogs.svelte'
     import Spinner from '../Spinner.svelte'
     import { goto } from '$app/navigation';
+    //@ts-ignore
     import IoIosPaper from 'svelte-icons/io/IoIosPaper.svelte'
     import { featured_image } from '$lib/stores';
 
@@ -39,7 +40,7 @@ function formatUrlSegment(url) {
   const handleClick=(id)=>{
         let filtered_article = articles.filter(article=>article.article_id==id);
         content = filtered_article[0].body
-        goto(`/digital-products/${filtered_article[0].url}`)
+        goto(`/${slug}/${filtered_article[0].url}`)
         if (activeArticle === id) {
       activeArticle = null;
     } else {
@@ -93,7 +94,8 @@ function formatUrlSegment(url) {
         type2 = true;
         isLoading = false;
          // @ts-ignore
-			  articles = data.filter(item=>item.categories.name==test_slug && item.post_type.type_name == 'Page' )     
+			  articles = data.filter(item=>item.categories.name==test_slug && item.post_type.type_name == 'Page' )   
+        
         // @ts-ignore
         title = test_slug;
         // @ts-ignore
@@ -230,8 +232,10 @@ Digital Products presents a monumental opportunity to create passive income. Exp
 <section class="content-sidebar container">
   {#if articles.length>0}
     <div class="list">
-        <div>
-          <p>{test_slug}</p>
+        <div class="list-category">
+          <a href={test_slug} >
+          {test_slug}
+        </a>
         </div>
        
         <ul>
@@ -255,8 +259,10 @@ Digital Products presents a monumental opportunity to create passive income. Exp
 <div class="container">
   {#if articles.length>0}
   <div class="list-2">
-    <div>
-      <p>{test_slug}</p>
+    <div class="list-category">
+      <a href={test_slug} >
+      {test_slug}
+    </a>
     </div>
    
     <ul>
