@@ -16,10 +16,10 @@
 		  <div class='menu-button'></div>
 		</label>
 		  <ul class="menu">
-			<li> <a href="/">Home</a></li>
-			<li> <a href="/blog">Blog</a></li>	
+			<li> <a href="/" class="hover-white">Home</a></li>
+			<li> <a href="/blog" class="hover-white">Blog</a></li>	
 			<li>
-				<span>Categories</span>
+				<span class="hover-white">Categories</span>
 				<ul class="dropdown">
 				  <li><a href="/digital-products" data-sveltekit-reload >Digital Products</a></li>
 				  <li><a href="/ecommerce" data-sveltekit-reload> Ecommerce</a></li>

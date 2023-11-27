@@ -37,10 +37,18 @@ function formatUrlSegment(url) {
     return formattedWords.join(' ');
   }
 
+  const normalizePath = (...parts) => {
+  // Remove leading and trailing slashes, then join parts with a single slash
+  return `/${parts.map(part => part.replace(/^\/|\/$/g, '')).join('/')}`;
+};
+
+
   const handleClick=(id)=>{
         let filtered_article = articles.filter(article=>article.article_id==id);
         content = filtered_article[0].body
-        goto(`/${slug}/${filtered_article[0].url}`)
+        let url =normalizePath(slug, filtered_article[0].url)
+        goto(url)
+        console.log(url)
         if (activeArticle === id) {
       activeArticle = null;
     } else {
@@ -182,7 +190,7 @@ function formatUrlSegment(url) {
 </div>
 
 <div class="container next-blog">
-    <p>Next Blog: <span>Navigating the Future: Content Writers and AI-Powered Tools </span> </p>
+    <p>Next Blog:<span>Navigating the Future: Content Writers and AI-Powered Tools </span> </p>
   </div>
 <Newsletter/>
 <div class="background">
