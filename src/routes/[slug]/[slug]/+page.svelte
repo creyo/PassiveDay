@@ -59,7 +59,8 @@
     main_category = staticPart;
     staticPart = formatUrlSegment(staticPart)
         // @ts-ignore
-			  articles =  data.filter(article=>article.post_type.type_name=="Page" && article.categories.name == staticPart);
+			  articles =  data.filter(article=>article.post_type.type_name=="Page" && article.categories.name == staticPart).sort((a, b) => new Date(a.date) - new Date(b.date));
+        console.log(articles)
          // @ts-ignore
         let foo = data.filter(blog=>(blog.categories.name == 'Main' && blog.url == main_category.replace(/^\/|\/$/g, '')  ))
           // @ts-ignore

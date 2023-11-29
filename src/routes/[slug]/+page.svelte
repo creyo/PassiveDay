@@ -102,7 +102,7 @@ function formatUrlSegment(url) {
         type2 = true;
         isLoading = false;
          // @ts-ignore
-			  articles = data.filter(item=>item.categories.name==test_slug && item.post_type.type_name == 'Page' )   
+			  articles = data.filter(item=>item.categories.name==test_slug && item.post_type.type_name == 'Page' ).sort((a, b) => new Date(a.date) - new Date(b.date));   
         
         // @ts-ignore
         title = test_slug;
