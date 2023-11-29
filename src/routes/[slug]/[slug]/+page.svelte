@@ -127,7 +127,7 @@
     </div>
   </div>
   <div class="ebook-hero container">
-    <img src={`https://res.cloudinary.com/creyo-com/image/upload/v1700642325/passiveday/pages/${$featured_image}`} alt="">
+    <img src={`https://res.cloudinary.com/creyo-com/image/upload/v1700642325/passiveday/page/${$featured_image}`} alt="">
       <!-- <h1> Digital Products</h1>
       <p>
 Digital Products presents a monumental opportunity to create passive income. Explore the different options available.
