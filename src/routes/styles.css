@@ -641,30 +641,31 @@ footer h2{
   color:#454545;
  }
 .content p, .blog-content p{
-  font-size: 20.4px;
+  font-size: 18px;
   font-family: 'Inter', sans-serif;
   line-height: 30px;
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
-.content h1, .content h2, .content h3{
-  margin: 1rem 0;
+.content h1, .content h2, .content h3, .blog-content h1, .blog-content h2, .blog-content h3{
+  margin-top:  2rem;
+  margin-bottom: 10px;
   line-height: 50px;
   font-size: 42px;
   font-family: 'Factor', sans-serif !important;
 }
+
+.content h3, .blog-content h3{
+  line-height: 36px;
+  font-size: 36px;
+}
+
 .blog-content ul li , .blog-content ol li,.content ul li , .content ol li{
   margin-left: 20px;
-  font-size: 20.4px;
+  font-size: 18px;
   font-family: 'Inter', sans-serif;
   line-height: 30px;
   font-weight: 300;
-}
-.blog-content h1, .blog-content h2, .blog-content h3{
-  margin: 1rem 0;
-  font-size: 42px;
-  line-height: 50px;
-  font-family: 'Factor', sans-serif !important;
 }
 .ebook-hero{
   font-family: 'Raleway', sans-serif;
