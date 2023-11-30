@@ -48,7 +48,8 @@ function formatUrlSegment(url) {
         content = filtered_article[0].body
         let url =normalizePath(slug, filtered_article[0].url)
         goto(url)
-        console.log(url)
+      
+        
         if (activeArticle === id) {
       activeArticle = null;
     } else {

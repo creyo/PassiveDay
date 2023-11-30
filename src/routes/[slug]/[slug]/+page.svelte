@@ -60,11 +60,9 @@
     staticPart = formatUrlSegment(staticPart)
         // @ts-ignore
 			  articles =  data.filter(article=>article.post_type.type_name=="Page" && article.categories.name == staticPart).sort((a, b) => new Date(a.date) - new Date(b.date));
-        console.log(articles)
          // @ts-ignore
         let foo = data.filter(blog=>(blog.categories.name == 'Main' && blog.url == main_category.replace(/^\/|\/$/g, '')  ))
           // @ts-ignore
-          // console.log(foo)
         featured_image.set(foo[0].featured_image)
              // @ts-ignore
         let article = articles.filter(article=>article.url==slug );
@@ -91,13 +89,16 @@
 };
 
     const handleClick=(id)=>{
-        // console.log("clicked",id);
+     
+      
         let filtered_article = articles.filter(article=>article.article_id==id);
         content = filtered_article[0].body
-        // console.log(filtered_article)
+       
+        
         let url = normalizePath(main_category, filtered_article[0].url)
         goto(url)
-        // console.log(url)
+      
+        
         if (activeArticle === id) {
       activeArticle = null; // Deactivate if already active
     } else {

@@ -23,7 +23,7 @@
                   </p>
             </div>
             <div class="hero-image">
-                <img src="src\lib\images\sample1.png" alt="">
+                <img src={heroImage} alt="">
             </div>
         </div>
     </section>

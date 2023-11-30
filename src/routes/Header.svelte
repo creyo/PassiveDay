@@ -1,6 +1,6 @@
 <script lang="js">
 	// import { page } from '$app/stores';
-	import logo from '$lib/images/logoText.png';
+	import logo from '$lib/images/logo2.png';
 	import doctor from '$lib/images/doctor.png';
 </script>
 
